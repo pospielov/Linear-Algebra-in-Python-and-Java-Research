@@ -1,0 +1,23 @@
+ND4JApp:
+testTransforms:
+benchmark: [-Xmx8g-graal=108.811,
+            -Xmx12g-graal=98.688, CPU: 450%, RAM: 24g
+            -Xmx12g-adopt-hotspot=98.348, CPU: 450%, RAM: 24g
+            -Xmx12g-adopt-openj9=113.407, CPU: 450%, RAM: 24g
+            -Xmx12g-graal-parralel-gc=98.530, CPU: 450%, RAM: 24g
+            -Xmx512m-graal=145.752, CPU: 350%, RAM: 1g
+            -Xmx2g-graal=114.432, CPU: 440%, RAM: 4g
+max: 0.6078
+ArgMax: 5944
+
+testLoop:
+benchmark: [-Xmx2g-graal=1515.987, CPU: 500%, RAM: 3g
+max: 0.6078
+ArgMax: 5944
+
+
+NumpyApp:
+benchmark: [-Xmx8g-graal=86.620 * 1000, CPU: 500%, RAM: 2g
+max: 0.6078
+ArgMax: 5944
+

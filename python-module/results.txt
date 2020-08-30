@@ -1,0 +1,82 @@
+numpy: print(timeit.repeat("test()", setup="from __main__ import test;  gc.enable();", number=1000, repeat=3))
+benchmark: [35.93127985000319, 35.19005203900451, 34.891922827999224]
+dist: [0.51075066 0.50649072 0.53883762 ... 0.5320201  0.49657773 0.53887717]
+max: 0.6077656623135284
+ArgMax: 5944
+CPU: 100%
+RAM: 256mb
+r/s: 27.7
+
+numpy_cached: print(timeit.repeat("test()", setup="from __main__ import test;  gc.enable();", number=1000, repeat=3))
+benchmark: [16.546649905999402, 16.559010640999986, 16.606338937000146]
+dist: [0.51075066 0.50649072 0.53883762 ... 0.5320201  0.49657773 0.53887717]
+max: 0.6077656623135284
+ArgMax: 5944
+CPU: 100%
+RAM: 256mb
+r/s: 60.6
+
+tf pip: print(timeit.repeat("test()", setup="from __main__ import test;  gc.enable();", number=1000, repeat=3))
+benchmark: [67.83981786599907, 66.71534883399727, 67.20788601299864]
+dist: tf.Tensor([0.51075066 0.50649072 0.53883762 ... 0.5320201  0.49657773 0.53887717], shape=(10000,), dtype=float64)
+max: tf.Tensor(0.6077656623135285, shape=(), dtype=float64)
+ArgMax: 5944
+CPU: 300%
+RAM: 500mb
+r/s: 14.9
+
+tf mkl(conda): print(timeit.repeat("test()", setup="from __main__ import test;  gc.enable();", number=1000, repeat=3))
+benchmark: [24.39136791599958, 24.500929620000534, 24.246601146000103]
+dist: tf.Tensor([0.51075066 0.50649072 0.53883762 ... 0.5320201  0.49657773 0.53887717], shape=(10000,), dtype=float64)
+max: tf.Tensor(0.6077656623135285, shape=(), dtype=float64)
+ArgMax: 5944
+CPU: 650%
+RAM: 500mb
+r/s: 40
+
+tf mkl_cached(conda): print(timeit.repeat("test()", setup="from __main__ import test;  gc.enable();", number=1000, repeat=3))
+benchmark: [10.998653755001214, 10.887594818999787, 10.70801131600092]
+dist: tf.Tensor([0.51075066 0.50649072 0.53883762 ... 0.5320201  0.49657773 0.53887717], shape=(10000,), dtype=float64)
+max: tf.Tensor(0.6077656623135285, shape=(), dtype=float64)
+ArgMax: 5944
+CPU: 700%
+RAM: 500mb
+r/s: 95
+
+Java:
+ND4JApp:
+testTransforms: -Xmx2g-graal-in-place
+benchmark: 29.067, CPU: 300%, RAM: 4g
+max: 0.7796
+ArgMax: 5944
+r/s: 34.5 -Xmx2g-graal-in-place
+
+testTransforms: -Xmx2g-graal-in-place-cached
+benchmark: 9.722, CPU: 600%, RAM: ~2.5g
+max: 0.7796
+ArgMax: 5944
+r/s: 103 -Xmx2g-graal-in-place
+
+testLoop:
+benchmark: [-Xmx2g-graal=1515.987, CPU: 500%, RAM: 3g
+max: 0.6078
+ArgMax: 5944
+r/s: 0.66
+
+NumpyApp:
+benchmark: [-Xmx8g-graal=86.620 * 1000, CPU: 500%, RAM: 2g
+max: 0.6078
+ArgMax: 5944
+r/s: 0.011
+
+flask_test:
+2 CPU
+8g ram
+mean response: 40ms
+30 r/s
+
+fastapi_test:
+2 CPU
+8g ram
+mean response: 46ms
+35 r/s

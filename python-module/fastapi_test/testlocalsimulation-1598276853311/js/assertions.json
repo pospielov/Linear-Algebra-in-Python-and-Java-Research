@@ -1,0 +1,10 @@
+{
+  "simulation": "io.appery.simulation.serverapi.TestLocalSimulation",
+  "simulationId": "testlocalsimulation",
+  "start": 1598276853311,
+  "description": "",
+  "scenarios": ["Test"],
+  "assertions": [
+
+  ]
+}
