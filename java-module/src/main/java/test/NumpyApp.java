@@ -1,4 +1,4 @@
-package appery.io;
+package test;
 
 
 import org.graalvm.polyglot.Context;

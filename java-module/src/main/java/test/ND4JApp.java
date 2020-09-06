@@ -1,4 +1,4 @@
-package appery.io;
+package test;
 
 import org.apache.commons.lang3.ArrayUtils;
 import org.nd4j.linalg.api.ndarray.INDArray;
